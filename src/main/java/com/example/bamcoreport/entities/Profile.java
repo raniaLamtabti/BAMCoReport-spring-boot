@@ -1,12 +1,13 @@
 package com.example.bamcoreport.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
 public class Profile {
@@ -17,14 +18,16 @@ public class Profile {
     private String name;
     private String description;
     @ManyToOne
-    @JoinColumn(name = "created_by_id")
+    @JoinColumn(name = "created_by")
     private User createdBy;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date creationDate;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date lastUpdateDate;
+
+    @CreationTimestamp
+    private LocalDate creationDate;
+
+    @UpdateTimestamp
+    private LocalDate lastUpdate;
     @ManyToOne
-    @JoinColumn(name = "last_updated_by_id")
+    @JoinColumn(name = "last_updated_by")
     private User lastUpdatedBy;
 
 

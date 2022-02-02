@@ -4,11 +4,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
+@Table(name ="groups")
 public class Group {
 
     @Id @GeneratedValue( strategy = GenerationType.IDENTITY )
@@ -18,13 +22,17 @@ public class Group {
     private String parentPath;
     private String displayName;
     private String description;
+
     @ManyToOne
-    @JoinColumn(name = "created_by_id")
+    @JoinColumn(name = "created_by" ,referencedColumnName = "id")
     private User createdBy;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date creationDate;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date lastUpdateDate;
+
+    @CreationTimestamp
+    private LocalDate creationDate;
+
+    @UpdateTimestamp
+    private LocalDate lastUpdate;
+
 
 
 

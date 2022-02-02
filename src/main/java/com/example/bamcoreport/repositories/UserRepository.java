@@ -1,6 +1,6 @@
-package com.example.bamcoreport.repository;
+package com.example.bamcoreport.repositories;
 
-import org.apache.catalina.User;
+import com.example.bamcoreport.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,9 +8,5 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
-
-    List<User> findAllBy();
-
 
 }

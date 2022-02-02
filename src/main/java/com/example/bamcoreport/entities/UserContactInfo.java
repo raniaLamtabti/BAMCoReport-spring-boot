@@ -33,4 +33,5 @@ public class UserContactInfo {
     private String country;
     private String website;
     private boolean personal;
+
 }

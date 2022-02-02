@@ -1,4 +1,4 @@
-package com.example.bamcoreport.repository;
+package com.example.bamcoreport.repositories;
 
 import com.example.bamcoreport.entities.UserMembership;
 import org.springframework.data.jpa.repository.JpaRepository;
