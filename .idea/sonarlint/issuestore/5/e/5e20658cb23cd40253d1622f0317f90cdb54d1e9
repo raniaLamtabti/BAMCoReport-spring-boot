@@ -1,7 +1,0 @@
-
-[
-java:S5993"9Change the visibility of this constructor to "protected".(‚­”¶ùÿÿÿÿ8Àöë/
-S
-java:S1905C"1Remove this unnecessary cast to "ResponseEntity".(ô‚æ„şÿÿÿÿ8Şöë/
-r
-java:S3655C"PCall "optional.isPresent()" or "!optional.isEmpty()" before accessing the value.(ô‚æ„şÿÿÿÿ8öë/

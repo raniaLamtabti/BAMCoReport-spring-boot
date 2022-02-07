@@ -1,6 +1,5 @@
 package com.example.demo.service.generic;
 
-import com.example.demo.mapper.IMapperImpl;
 import com.example.demo.repository.generic.GenericRepository;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;

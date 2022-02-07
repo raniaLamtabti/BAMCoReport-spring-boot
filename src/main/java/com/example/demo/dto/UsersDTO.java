@@ -10,26 +10,26 @@ import java.sql.Date;
 @ApiModel("$table.tableComment")
 public class UsersDTO {
 
-    private Date creationDate;
+//    private Date creationDate;
 
-    private Date lastUpdate;
+//    private Date lastUpdate;
 
-    private Long createdBy;
+//    private Long createdBy;
 
-    private Boolean enabled;
+//    private Boolean enabled;
 
     private String firstName;
 
-    private String jobTitle;
-
     private String lastName;
 
-    private Long managerUserId;
+    private String jobTitle;
+
+    private String title;
+//    private Long managerUserId;
 
     private String password;
 
-    private String title;
-
     private String username;
+
 
 }
