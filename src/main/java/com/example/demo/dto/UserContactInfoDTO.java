@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
 
+import com.example.demo.entities.Users;
 import lombok.Data;
 
 import java.sql.Date;
@@ -8,36 +9,20 @@ import java.sql.Date;
 @Data
 public class UserContactInfoDTO {
 
-    private Date creationDate;
-
-    private Date lastUpdate;
-
-    private String address;
-
-    private String building;
-
-    private String city;
-
-    private String country;
+    private Users userId;
 
     private String email;
-
-    private String fax;
-
-    private String mobile;
-
-    private Boolean personal;
-
     private String phone;
-
+    private String mobile;
+    private String fax;
+    private String building;
     private String room;
-
+    private String address;
+    private String city;
     private String state;
-
+    private String zip;
+    private String country;
     private String website;
-
-    private String zipcode;
-
-    private Long userId;
+    private boolean personal;
 
 }

@@ -1,43 +1,85 @@
 package com.example.demo.entities;
 
-import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Date;
 
-/**
- * $table.getTableComment()
- */
-@Data
 @Entity
-@Table(name = "profile_member")
+@Table
 public class ProfileMember {
-
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-    @Column(name = "creation_date")
-    @CreationTimestamp
-    private Date creationDate;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profile_id")
+    private Profile profileId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private Users userId;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="roleId")
+    private Role roleId;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="groupId")
+    private Groups groupId;
 
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private Date lastUpdate;
 
-    @Column(name = "group_id")
-    private Long groupId;
+    public ProfileMember() {
+    }
 
-    @Column(name = "profile_id")
-    private Long profileId;
+    public ProfileMember(Long id, Profile profileId, Users userId, Groups groupId, Role roleId) {
+        this.id = id;
+        this.profileId = profileId;
+        this.userId = userId;
+        this.groupId = groupId;
+        this.roleId = roleId;
+    }
 
-    @Column(name = "role_id")
-    private Long roleId;
+    public ProfileMember(Profile profileId, Users userId, Groups groupId, Role roleId) {
+        this.profileId = profileId;
+        this.userId = userId;
+        this.groupId = groupId;
+        this.roleId = roleId;
+    }
 
-    @Column(name = "user_id")
-    private Long userId;
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Profile getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(Profile profileId) {
+        this.profileId = profileId;
+    }
+
+    public Users getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Users userId) {
+        this.userId = userId;
+    }
+
+    public Groups getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Groups groupId) {
+        this.groupId = groupId;
+    }
+
+    public Role getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
+    }
 }

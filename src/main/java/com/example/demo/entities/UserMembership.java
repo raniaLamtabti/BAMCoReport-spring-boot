@@ -1,46 +1,37 @@
 package com.example.demo.entities;
 
-import lombok.Data;
+import lombok.*;
+import org.apache.catalina.Group;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 
-/**
- * $table.getTableComment()
- */
-@Data
 @Entity
-@Table(name = "user_membership")
+@Table
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserMembership {
-
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    private long id;
 
-    @Column(name = "creation_date")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Users user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Role role;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Groups group;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Users assignedBy;
+
     @CreationTimestamp
-    private Date creationDate;
-
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private Date lastUpdate;
-
-    @Column(name = "assigned_date")
-    private Date assignedDate;
-
-    @Column(name = "assigned_by")
-    private Long assignedBy;
-
-    @Column(name = "group_id")
-    private Long groupId;
-
-    @Column(name = "role_id")
-    private Long roleId;
-
-    @Column(name = "user_id")
-    private Long userId;
+    private LocalDateTime assignedDate;
 
 }
