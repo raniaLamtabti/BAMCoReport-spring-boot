@@ -16,8 +16,6 @@ import java.time.LocalDate;
 @ApiModel("$table.tableComment")
 public class RoleDTO {
 
-    @JsonIgnore
-    private Long id;
     private String name;
     private String displayName;
     private String description;

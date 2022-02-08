@@ -14,7 +14,6 @@ import java.sql.Date;
 @ApiModel("$table.tableComment")
 public class ProfileMemberDTO {
 
-    private Profile profileId;
     private Users userId;
     private Role roleId;
     private Groups groupId;
