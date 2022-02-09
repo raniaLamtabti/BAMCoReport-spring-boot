@@ -13,8 +13,8 @@ public class DemoApplication<T> {
     }
 
 
-    @Bean
+    /*@Bean
     public GenericRepository<T> genericRepository() {
-        return GenericRepository<T>();
-    }
+        return new GenericRepository<T>();
+    }*/
 }

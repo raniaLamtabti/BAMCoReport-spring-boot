@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
 
-    @Autowired
+
     private GenericRepository<T> genericRepository;
     private ModelMapper mapper = new ModelMapper();
 
