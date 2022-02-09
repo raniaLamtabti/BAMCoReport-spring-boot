@@ -4,7 +4,11 @@ import com.example.demo.entities.Users;
 import com.example.demo.repository.generic.GenericRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UsersRepository extends GenericRepository<Users> {
+import java.util.Optional;
 
+public interface UsersRepository extends JpaRepository<Users, Long>  {
+
+    Optional<Users> findByUsername(String username);
 }

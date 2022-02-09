@@ -2,7 +2,19 @@ package com.example.demo.service;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Optional;
 
+import com.example.demo.dto.RoleDTO;
+import com.example.demo.entities.Role;
+import lombok.extern.slf4j.Slf4j;
+import com.example.demo.entities.UserMembership;
+import com.example.demo.entities.Users;
+import com.example.demo.repository.UserMembershipRepository;
+import com.example.demo.repository.UsersRepository;
+import com.example.demo.service.impl.RoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,16 +22,44 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class JwtUserDetailsService implements UserDetailsService {
+
+    @Autowired
+    UsersRepository userRepository;
+
+    @Autowired
+    UserMembershipRepository userMembershipRepository;
+
+    @Autowired
+    RoleService roleService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if ("techgeeknext".equals(username)) {
-            return new User("techgeeknext", "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6",
-                    new ArrayList<>());
-        } else {
-            throw new UsernameNotFoundException("User not found with username: " + username);
+
+        Optional<Users> user = userRepository.findByUsername(username);
+        log.info(username);
+        log.info("OK : "+user);
+        if (user.isEmpty()) {
+            log.error("User not found");
+            throw new UsernameNotFoundException("user not found");
+        }else {
+            log.info("user found");
         }
+
+        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+        UserMembership membership = userMembershipRepository.findByUserId(user.get().getId());
+        String role = null;
+        try {
+            role = roleService.findById(membership.getRole().getId()).getName();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        authorities.add(new SimpleGrantedAuthority(role));
+        return new User(user.get().getUsername(),user.get().getPassword(),authorities);
     }
+
 
 }

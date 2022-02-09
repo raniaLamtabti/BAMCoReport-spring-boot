@@ -1,5 +1,6 @@
 package com.example.demo.controller.generic;
 
+import com.example.demo.entities.Users;
 import com.example.demo.service.generic.ServiceGeneric;
 import io.swagger.annotations.ApiOperation;
 
@@ -16,7 +17,6 @@ public  class ControllerGenericImpl<T,D> implements ControllerGeneric<T,D> {
     protected ControllerGenericImpl(ServiceGeneric<T,D> genericService) {
         this.genericService = genericService;
     }
-
 
 
 

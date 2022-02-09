@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface ControllerGeneric<T,D> {
 
+
     ResponseEntity<D> findAll();
 
     ResponseEntity<D> findById(@PathVariable Long id);

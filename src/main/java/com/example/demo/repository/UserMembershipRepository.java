@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface UserMembershipRepository extends GenericRepository<UserMembership> {
 
+    UserMembership findByUserId(Long userId);
+
 }
