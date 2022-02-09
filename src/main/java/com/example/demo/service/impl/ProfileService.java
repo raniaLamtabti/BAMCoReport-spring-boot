@@ -16,7 +16,7 @@ public class ProfileService extends ServiceGenericImpl<Profile, ProfileDTO> impl
 
 
     public ProfileService() {
-        super(entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }
 

@@ -14,6 +14,6 @@ public class TestService extends ServiceGenericImpl<Test, TestDTO> implements IT
     private static final Class<Test> entityClass = Test.class;
     private static final Class<TestDTO> dtoClass = TestDTO.class;
     public TestService() {
-        super(entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

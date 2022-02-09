@@ -13,6 +13,6 @@ public class UserMembershipService extends ServiceGenericImpl<UserMembership, Us
     private static final Class<UserMembership> entityClass = UserMembership.class;
     private static final Class<UserMembershipDTO> dtoClass = UserMembershipDTO.class;
     public UserMembershipService() {
-        super(entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

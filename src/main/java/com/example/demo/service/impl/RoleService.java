@@ -13,6 +13,6 @@ public class RoleService extends ServiceGenericImpl<Role, RoleDTO> implements IR
     private static final Class<Role> entityClass = Role.class;
     private static final Class<RoleDTO> dtoClass = RoleDTO.class;
     public RoleService() {
-        super(entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

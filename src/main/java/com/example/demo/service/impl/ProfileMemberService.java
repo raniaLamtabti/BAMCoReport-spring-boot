@@ -16,6 +16,6 @@ public class ProfileMemberService extends ServiceGenericImpl<ProfileMember, Prof
 
 
     public ProfileMemberService() {
-        super(entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

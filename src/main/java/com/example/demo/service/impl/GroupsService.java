@@ -16,6 +16,6 @@ public class GroupsService extends ServiceGenericImpl<Groups, GroupsDTO> impleme
 
 
     public GroupsService() {
-        super(entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }
