@@ -6,15 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class DemoApplication<T> {
+public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
 
 
-    /*@Bean
-    public GenericRepository<T> genericRepository() {
-        return new GenericRepository<T>();
+   /* @Bean
+    public GenericRepository<T, Long> genericRepository() {
+        return GenericRepository<T, Long>();
     }*/
 }
