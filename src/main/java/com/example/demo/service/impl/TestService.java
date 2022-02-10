@@ -13,7 +13,7 @@ public class TestService extends ServiceGenericImpl<Test, TestDTO>  {
     private static final Class<Test> entityClass = Test.class;
     private static final Class<TestDTO> dtoClass = TestDTO.class;
     public TestService(GenericRepository<Test, TestDTO> repository) {
-        super(repository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 
 }

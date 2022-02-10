@@ -17,7 +17,7 @@ public class UserContactInfoService extends ServiceGenericImpl<UserContactInfo, 
 
 
     public UserContactInfoService(GenericRepository<UserContactInfo, UserContactInfoDTO> genericRepository) {
-        super(genericRepository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 
 }

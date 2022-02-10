@@ -13,7 +13,7 @@ public class RoleService extends ServiceGenericImpl<Role, RoleDTO> {
     private static final Class<Role> entityClass = Role.class;
     private static final Class<RoleDTO> dtoClass = RoleDTO.class;
     public RoleService(GenericRepository<Role, RoleDTO> genericRepository) {
-        super(genericRepository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 
 

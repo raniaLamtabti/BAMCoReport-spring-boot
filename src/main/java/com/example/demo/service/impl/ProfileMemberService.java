@@ -16,6 +16,6 @@ public class ProfileMemberService extends ServiceGenericImpl<ProfileMember, Prof
 
 
     public ProfileMemberService(GenericRepository<ProfileMember, ProfileMemberDTO> repository) {
-        super(repository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

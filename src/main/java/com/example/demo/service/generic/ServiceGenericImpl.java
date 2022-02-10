@@ -4,6 +4,7 @@ import com.example.demo.repository.generic.GenericRepository;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -14,7 +15,8 @@ import java.util.stream.Collectors;
 public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
 
 
-    private final GenericRepository<T,D> genericRepository;
+    @Autowired
+    private GenericRepository<T,D> genericRepository;
     private ModelMapper mapper = new ModelMapper();
 
     private final Class<T> entityClass;
@@ -29,8 +31,8 @@ public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
                 .getActualTypeArguments()[0];
     }
 
-    public ServiceGenericImpl(GenericRepository<T, D> genericRepository, Class<T> entityClass, Class<D> dtoClass) {
-        this.genericRepository = genericRepository;
+    public ServiceGenericImpl( Class<T> entityClass, Class<D> dtoClass) {
+
         this.entityClass = entityClass;
         this.dtoClass = dtoClass;
 

@@ -14,6 +14,6 @@ public class UsersService extends ServiceGenericImpl<Users, UsersDTO>  {
     private static final Class<Users> entityClass = Users.class;
     private static final Class<UsersDTO> dtoClass = UsersDTO.class;
     public UsersService(GenericRepository<Users, UsersDTO> repository) {
-        super(repository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

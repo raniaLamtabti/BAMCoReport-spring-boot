@@ -15,6 +15,6 @@ public class GroupsService extends ServiceGenericImpl<Groups, GroupsDTO >  {
 
 
     public GroupsService(GenericRepository<Groups, GroupsDTO> genericRepository) {
-        super(genericRepository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 }

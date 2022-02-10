@@ -16,7 +16,7 @@ public class ProfileService extends ServiceGenericImpl<Profile, ProfileDTO>  {
 
 
     public ProfileService(GenericRepository<Profile, ProfileDTO> repository) {
-        super(repository, entityClass, dtoClass);
+        super( entityClass, dtoClass);
     }
 
 }
