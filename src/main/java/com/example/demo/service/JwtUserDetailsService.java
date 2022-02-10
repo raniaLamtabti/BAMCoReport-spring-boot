@@ -49,13 +49,13 @@ public class JwtUserDetailsService implements UserDetailsService {
 
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-
-        UserMembership membership = userMembershipRepository.findByUserId(1L);
-        log.info(String.valueOf(membership));
+        log.info(String.valueOf(user));
+        UserMembership membership = userMembershipRepository.findByUser(user);
+        log.info("member " + membership.getUser());
+        log.info("role " + membership.getRole().getId());
         String role = null;
         try {
-            role = roleService.findById(membership.getRole().getId()).getName();
-
+            role = roleService.findById(1L).getName();
             log.info(String.valueOf(role));
         } catch (Exception e) {
             e.printStackTrace();

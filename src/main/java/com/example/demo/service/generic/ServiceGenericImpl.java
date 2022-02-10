@@ -1,18 +1,21 @@
 package com.example.demo.service.generic;
 
 import com.example.demo.repository.generic.GenericRepository;
+import com.example.demo.repository.generic.GenericRepositoryImpl;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
 
-
-    private  GenericRepository<T, Long> genericRepository;
+    @Autowired(required=true)
+    private GenericRepository<T, Long> genericRepository;
     private ModelMapper mapper = new ModelMapper();
 
     private final Class<T> entityClass;
@@ -44,7 +47,11 @@ public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
     @Override
     public D findById(Long id) throws Exception {
         try {
-            T entity = genericRepository.findById(id).get();
+            System.out.println("id:"+id);
+            Optional<T> entity = genericRepository.findById(id);
+            if (entity == null) {
+                return null;
+            }
             mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT).setPropertyCondition(Conditions.isNotNull());
             return mapper.map(entity, dtoClass);
         } catch (Exception e) {
