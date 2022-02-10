@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 @ApiModel("$table.tableComment")
 public class TestDTO {
+    private Long id;
 
     private String name;
 

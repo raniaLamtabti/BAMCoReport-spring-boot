@@ -4,31 +4,44 @@ import com.example.demo.repository.generic.GenericRepository;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
 
-    @Autowired
-    private GenericRepository<T> genericRepository;
+
+    private final GenericRepository<T,D> genericRepository;
     private ModelMapper mapper = new ModelMapper();
 
     private final Class<T> entityClass;
     private final Class<D> dtoClass;
 
-    public ServiceGenericImpl(Class<T> entityClass, Class<D> dtoClass) {
-        this.entityClass = entityClass;
-        this.dtoClass = dtoClass;
-    }
+
+    //private final Class<T> type;
 
     @SuppressWarnings("unchecked")
     private Class<T> getEntityClass() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
                 .getActualTypeArguments()[0];
     }
+
+    public ServiceGenericImpl(GenericRepository<T, D> genericRepository, Class<T> entityClass, Class<D> dtoClass) {
+        this.genericRepository = genericRepository;
+        this.entityClass = entityClass;
+        this.dtoClass = dtoClass;
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private Class<T> getClassType() {
+        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
+
+
 
 
     @Override
@@ -44,9 +57,9 @@ public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
     @Override
     public D findById(Long id) throws Exception {
         try {
-            T entity = genericRepository.findById(id).get();
-            mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT).setPropertyCondition(Conditions.isNotNull());
-            return mapper.map(entity, dtoClass);
+            Optional<T> entity = genericRepository.findById(id);
+            return entity.map(entity1 -> (D) mapper.map(entity1, dtoClass)).orElse(null);
+
         } catch (Exception e) {
             throw e;
         }
