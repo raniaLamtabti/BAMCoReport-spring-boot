@@ -47,13 +47,9 @@ public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
     @Override
     public D findById(Long id) throws Exception {
         try {
-            System.out.println("id:"+id);
             Optional<T> entity = genericRepository.findById(id);
-            if (entity == null) {
-                return null;
-            }
-            mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT).setPropertyCondition(Conditions.isNotNull());
-            return mapper.map(entity, dtoClass);
+            return entity.map(entity1 -> (D) mapper.map(entity1, dtoClass)).orElse(null);
+
         } catch (Exception e) {
             throw e;
         }
