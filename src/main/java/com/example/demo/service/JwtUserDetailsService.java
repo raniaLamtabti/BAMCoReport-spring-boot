@@ -51,11 +51,9 @@ public class JwtUserDetailsService implements UserDetailsService {
 
         log.info(String.valueOf(user));
         UserMembership membership = userMembershipRepository.findByUser(user);
-        log.info("member " + membership.getUser());
-        log.info("role " + membership.getRole().getId());
         String role = null;
         try {
-            role = roleService.findById(1L).getName();
+            role = roleService.findById(membership.getRole().getId()).getName();
             log.info(String.valueOf(role));
         } catch (Exception e) {
             e.printStackTrace();

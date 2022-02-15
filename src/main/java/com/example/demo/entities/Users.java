@@ -1,9 +1,7 @@
 package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -14,7 +12,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table @Data @NoArgsConstructor @AllArgsConstructor
+@Table
+@Getter
+@Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Users implements Serializable {
     @Id
     @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
