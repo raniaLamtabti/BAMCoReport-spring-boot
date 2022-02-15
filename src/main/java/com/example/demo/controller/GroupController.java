@@ -14,4 +14,6 @@ public class GroupController extends ControllerGenericImpl<Groups, GroupsDTO> {
     protected GroupController(ServiceGeneric<Groups, GroupsDTO> genericService) {
         super(genericService);
     }
+
+    // create
 }
