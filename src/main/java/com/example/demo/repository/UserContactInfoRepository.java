@@ -1,9 +1,8 @@
 package com.example.demo.repository;
 
-import com.example.demo.dto.UserContactInfoDTO;
 import com.example.demo.entities.UserContactInfo;
 import com.example.demo.repository.generic.GenericRepository;
 
-public interface UserContactInfoRepository extends GenericRepository<UserContactInfo, UserContactInfoDTO> {
+public interface UserContactInfoRepository extends GenericRepository<UserContactInfo> {
 
 }

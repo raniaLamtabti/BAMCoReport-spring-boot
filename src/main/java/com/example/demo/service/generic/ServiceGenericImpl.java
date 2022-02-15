@@ -1,6 +1,7 @@
 package com.example.demo.service.generic;
 
 import com.example.demo.repository.generic.GenericRepository;
+import com.example.demo.repository.generic.GenericRepositoryImpl;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -11,39 +12,26 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 public class ServiceGenericImpl<T,D> implements ServiceGeneric<T,D> {
 
-
-    @Autowired
-    private GenericRepository<T,D> genericRepository;
+    @Autowired(required=true)
+    private GenericRepository<T> genericRepository;
     private ModelMapper mapper = new ModelMapper();
 
     private final Class<T> entityClass;
     private final Class<D> dtoClass;
 
-
-    //private final Class<T> type;
-
-    @SuppressWarnings("unchecked")
-    private Class<T> getEntityClass() {
-        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
-                .getActualTypeArguments()[0];
-    }
-
     public ServiceGenericImpl( Class<T> entityClass, Class<D> dtoClass) {
-
         this.entityClass = entityClass;
         this.dtoClass = dtoClass;
 
     }
 
     @SuppressWarnings("unchecked")
-    private Class<T> getClassType() {
-        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    private Class<T> getEntityClass() {
+        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
+                .getActualTypeArguments()[0];
     }
-
-
 
 
     @Override

@@ -1,13 +1,13 @@
 package com.example.demo.controller.generic;
 
-import com.example.demo.dto.TestDTO;
-import com.example.demo.entities.Test;
 import com.example.demo.service.generic.ServiceGeneric;
 import io.swagger.annotations.ApiOperation;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 
 
 
@@ -15,8 +15,8 @@ public  class ControllerGenericImpl<T,D> implements ControllerGeneric<T,D> {
 
     private final ServiceGeneric<T,D> genericService;
 
-    protected ControllerGenericImpl(ServiceGeneric<Test, TestDTO> genericService) {
-        this.genericService = (ServiceGeneric<T, D>) genericService;
+    protected ControllerGenericImpl(ServiceGeneric<T,D> genericService) {
+        this.genericService = genericService;
     }
 
 
@@ -38,7 +38,6 @@ public  class ControllerGenericImpl<T,D> implements ControllerGeneric<T,D> {
     public ResponseEntity<D> findById(Long id) {
         try {
             boolean ifExists = genericService.findById(id) != null;
-
             if (ifExists) {
                 return new ResponseEntity(genericService.findById(id), HttpStatus.OK);
             }

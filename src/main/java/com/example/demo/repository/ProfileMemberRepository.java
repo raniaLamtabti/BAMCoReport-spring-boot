@@ -1,9 +1,8 @@
 package com.example.demo.repository;
 
-import com.example.demo.dto.ProfileMemberDTO;
 import com.example.demo.entities.ProfileMember;
 import com.example.demo.repository.generic.GenericRepository;
 
-public interface ProfileMemberRepository extends GenericRepository<ProfileMember, ProfileMemberDTO> {
+public interface ProfileMemberRepository extends GenericRepository<ProfileMember> {
 
 }
