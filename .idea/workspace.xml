@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61ac2101-66af-4b1d-b5bb-35f869ca2b15" name="Changes" comment="change build run">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
@@ -117,7 +116,7 @@
       <workItem from="1644914005834" duration="6347000" />
       <workItem from="1645001066186" duration="3524000" />
       <workItem from="1645611818767" duration="2687000" />
-      <workItem from="1645624981806" duration="1831000" />
+      <workItem from="1645624981806" duration="2210000" />
     </task>
     <task id="LOCAL-00001" summary="changing db">
       <created>1645612055404</created>
@@ -133,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645613010570</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="change build run">
+      <created>1645627059709</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645627059709</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
