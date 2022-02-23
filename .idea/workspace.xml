@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ac2101-66af-4b1d-b5bb-35f869ca2b15" name="Changes" comment="change build run">
+    <list default="true" id="61ac2101-66af-4b1d-b5bb-35f869ca2b15" name="Changes" comment="docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <list id="0b9ed313-a293-4fb4-a356-bf92f3f7f425" name="Changes by mohammed" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,12 +61,13 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Dockerfile" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager" selected="Docker.Dockerfile">
@@ -89,10 +89,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" editBeforeRun="true" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
+          <option name="imageTag" value="bamcoreport:latest" />
+          <option name="containerName" value="bamcoreport" />
           <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Postgres Config" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="postgres:latest" />
+          <option name="containerName" value="PostgresContainer" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="Postgres_ROOT_PASSWORD" />
+                <option name="value" value="root" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="Postgres_DATABASE" />
+                <option name="value" value="bamco" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="3306" />
+                <option name="hostPort" value="3306" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
         </settings>
       </deployment>
       <method v="2" />
@@ -100,6 +131,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Postgres Config" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +148,7 @@
       <workItem from="1644914005834" duration="6347000" />
       <workItem from="1645001066186" duration="3524000" />
       <workItem from="1645611818767" duration="2687000" />
-      <workItem from="1645624981806" duration="2210000" />
+      <workItem from="1645624981806" duration="3981000" />
     </task>
     <task id="LOCAL-00001" summary="changing db">
       <created>1645612055404</created>
@@ -139,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645627059709</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="docker">
+      <created>1645627479203</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1645627479203</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +198,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changing db" />
     <MESSAGE value="change build run" />
-    <option name="LAST_COMMIT_MESSAGE" value="change build run" />
+    <MESSAGE value="docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
