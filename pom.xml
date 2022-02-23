@@ -164,6 +164,7 @@
     </dependencies>
 
     <build>
+        <finalName>bamcoreport</finalName>
         <plugins>
 
             <plugin>
