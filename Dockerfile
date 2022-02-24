@@ -1,6 +1,6 @@
 FROM openjdk:11
-WORKDIR /app
 
+COPY target/bamcoreport.jar /bamcoreport.jar
 EXPOSE 8080
-ADD target/bamcoreport.jar /bamcoreport.jar
+#ADD target/bamcoreport.jar /bamcoreport.jar
 ENTRYPOINT ["java", "-jar", "/bamcoreport.jar"]

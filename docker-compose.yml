@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres-db:
+    container_name: bamcoreport
+    image: postgres:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: bamco
+
+
