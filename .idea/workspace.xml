@@ -150,7 +150,7 @@
       <workItem from="1645611818767" duration="2687000" />
       <workItem from="1645624981806" duration="5975000" />
       <workItem from="1645696813642" duration="136000" />
-      <workItem from="1645697045382" duration="1746000" />
+      <workItem from="1645697045382" duration="2076000" />
     </task>
     <task id="LOCAL-00001" summary="changing db">
       <created>1645612055404</created>
@@ -194,7 +194,21 @@
       <option name="project" value="LOCAL" />
       <updated>1645698650743</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="initializing Dockerfile">
+      <created>1645698812600</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1645698812600</updated>
+    </task>
+    <task id="LOCAL-00008" summary="initializing Dockerfile">
+      <created>1645699061686</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1645699061686</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
